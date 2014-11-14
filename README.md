@@ -1,7 +1,7 @@
 # Programming, You're Doing It Completely Wrong!
 
 
-![](http://www.catonmat.net/blog/wp-content/uploads/2008/12/john-mccarthy-programming-wrong.jpg)
+![John McCarthy - Programming, You Are Doing It Completely Wrong.](http://www.catonmat.net/blog/wp-content/uploads/2008/12/john-mccarthy-programming-wrong.jpg)
 
 
 Collection of suspicious codes; Can you think of the reason?
