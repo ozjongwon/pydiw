@@ -3,9 +3,9 @@
 Collection of wrong codes; Can you think of the reason?
 
 This is just a joke, do not take it seriously :) Just for showing:
-     * Even respected programmers make mistakes and sometimes those are serious mistakes
-     * Premature optimisation can make things slow
-     * ...
+  * Even respected programmers make mistakes and sometimes those are serious mistakes
+  * Premature optimisation can make things slow
+  * ...
 
 ## License
 
