@@ -59,7 +59,7 @@
 
 ;;;
 ;;; From https://github.com/Prismatic/plumbing/blob/master/src/plumbing/core.cljx
-;;;     This has a fundamental problem.
+;;;     This is one of functions in the file having fundamental problems.
 ;;;
 (defn map-vals
   "Build map k -> (f v) for [k v] in map, preserving the initial type"
