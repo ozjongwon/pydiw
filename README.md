@@ -4,7 +4,7 @@
 ![](http://www.catonmat.net/blog/wp-content/uploads/2008/12/john-mccarthy-programming-wrong.jpg)
 
 
-Collection of wrong codes; Can you think of the reason?
+Collection of suspicious codes; Can you think of the reason?
 
 This is just a joke, do not take it seriously :) Just for showing:
   * Even respected programmers make mistakes and sometimes those are serious mistakes
