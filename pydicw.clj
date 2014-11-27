@@ -72,4 +72,34 @@
    :else
    (for-map [[k v] m] k (f v))))
 
+
+;;;
+;;; From https://github.com/ptaoussanis/carmine/blob/master/src/taoensso/carmine.clj
+;;;
+;;; Some designs are fragile, hard to understand and scary, most of people do not
+;;; like to read or change such code (even the author!). It can cause some problems later.
+;;; (I found an issue after finding that a timeout option in conn-spec can raise an exception)
+;;;
+
+(defmacro with-new-listener
+  [conn-spec handler initial-state & body]
+  `(let [handler-atom# (atom ~handler)
+         state-atom#   (atom ~initial-state)
+         {:as conn# in# :in} (conns/make-new-connection
+                              (assoc (conns/conn-spec ~conn-spec)
+                                :listener? true))]
+
+     (future-call ; Thread to long-poll for messages
+      (bound-fn []
+        (while true ; Closes when conn closes
+          (let [reply# (protocol/get-unparsed-reply in# {})]
+            (try
+              (@handler-atom# reply# @state-atom#)
+              (catch Throwable t#
+                (timbre/error t# "Listener handler exception")))))))
+
+     (protocol/with-context conn# ~@body
+       (protocol/execute-requests (not :get-replies) nil))
+     (Listener. conn# handler-atom# state-atom#)))
+
 ;;; PYDICW.CLJ ends here
